@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { Box, Typography, IconButton, TextField } from "@mui/material";
+import { Typography, IconButton, TextField } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import { TodoItemProps } from "@/types";
 import DoneIcon from "@mui/icons-material/Done";
+import { TodoItemProps } from "@/types";
 import { useTodoStore } from "@/store/store";
 
 const TodoItem: React.FC<TodoItemProps> = ({ id, text }) => {
@@ -23,47 +23,36 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text }) => {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        marginTop: 2,
-        flexDirection: "row",
-      }}
-    >
+    <div className="flex items-center justify-between mt-2 flex-row flex-no-wrap ">
       {editMode ? (
-        <>
-          <TextField
-            value={newText}
-            onChange={(e) => setNewText(e.target.value)}
-            autoFocus
-            multiline
-            autoComplete="off"
-            fullWidth
-          />
+        <TextField
+          value={newText}
+          onChange={(e) => setNewText(e.target.value)}
+          autoFocus
+          fullWidth
+          multiline
+          size="small"
+        />
+      ) : (
+        <Typography className="flex-1 overflow-wrap break-word break-all mr-2">
+          {text}
+        </Typography>
+      )}
+      <div className="flex items-center space-x-1">
+        {editMode ? (
           <IconButton onClick={updateHandler}>
             <DoneIcon />
           </IconButton>
-        </>
-      ) : (
-        <>
-          <Typography
-            sx={{ overflowWrap: "break-word", wordBreak: "break-word" }}
-          >
-            {text}
-          </Typography>
-          <div>
-            <IconButton onClick={() => setEditMode(true)}>
-              <EditIcon />
-            </IconButton>
-            <IconButton onClick={removeHandler}>
-              <DeleteIcon />
-            </IconButton>
-          </div>
-        </>
-      )}
-    </Box>
+        ) : (
+          <IconButton onClick={() => setEditMode(true)}>
+            <EditIcon />
+          </IconButton>
+        )}
+        <IconButton onClick={removeHandler}>
+          <DeleteIcon />
+        </IconButton>
+      </div>
+    </div>
   );
 };
 

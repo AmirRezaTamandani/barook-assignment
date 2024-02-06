@@ -20,9 +20,8 @@ const AddTodoForm: React.FC = () => {
       <TextField
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Hire AmirReza"
+        label="Todo"
         variant="outlined"
-        style={{ overflowWrap: "break-word" }}
         size="small"
         fullWidth
         autoComplete="off"
