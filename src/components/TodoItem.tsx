@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Typography, IconButton, Input, TextField } from "@mui/material";
+import { Typography, IconButton, TextField } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import DoneIcon from "@mui/icons-material/Done";
@@ -20,7 +20,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text }) => {
     } else {
       updateTodo(id, newText);
       setEditMode(false);
-      setInputError(false); // Reset the error state
+      setInputError(false);
     }
   };
 
