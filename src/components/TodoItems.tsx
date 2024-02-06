@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { useState } from "react";
 import { Box, Typography, IconButton, TextField } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -13,12 +14,12 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text }) => {
   const updateTodo = useTodoStore((state) => state.updateTodo);
   const removeTodo = useTodoStore((state) => state.removeTodo);
 
-  const handleUpdate = () => {
+  const updateHandler = () => {
     updateTodo(id, newText);
     setEditMode(false);
   };
 
-  const handleRemove = () => {
+  const removeHandler = () => {
     removeTodo(id);
   };
 
@@ -31,17 +32,17 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text }) => {
             onChange={(e) => setNewText(e.target.value)}
             autoFocus
           />
-          <IconButton onClick={handleUpdate}>
+          <IconButton onClick={() => setEditMode(true)} aria-label="Edit">
             <DoneIcon />
           </IconButton>
         </>
       ) : (
         <>
           <Typography>{text}</Typography>
-          <IconButton onClick={() => setEditMode(true)}>
+          <IconButton onClick={() => setEditMode(true)} aria-label="Edit">
             <EditIcon />
           </IconButton>
-          <IconButton onClick={handleRemove}>
+          <IconButton onClick={removeHandler} data-testid={`DeleteIcon-${id}`}>
             <DeleteIcon />
           </IconButton>
         </>
