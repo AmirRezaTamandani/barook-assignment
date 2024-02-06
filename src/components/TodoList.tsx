@@ -5,22 +5,22 @@ import TodoItem from "./TodoItem";
 import { useEffect } from "react";
 
 const TodoList = () => {
-  const todos = useTodoStore((state) => state.todos);
-  const loadTodos = useTodoStore((state) => state.loadTodos);
-  const saveTodos = useTodoStore((state) => state.saveTodos);
+  const todo = useTodoStore((state) => state.todo);
+  const loadTodo = useTodoStore((state) => state.loadTodo);
+  const saveTodo = useTodoStore((state) => state.saveTodo);
 
   useEffect(() => {
-    loadTodos();
+    loadTodo();
   }, []);
 
   useEffect(() => {
-    saveTodos();
-  }, [todos]);
+    saveTodo();
+  }, [todo]);
 
   return (
     <div>
       <AddTodoForm />
-      {todos.map((todo) => (
+      {todo.map((todo) => (
         <TodoItem key={todo.id} id={todo.id} text={todo.text} />
       ))}
     </div>

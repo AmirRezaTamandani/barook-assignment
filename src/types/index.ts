@@ -3,12 +3,12 @@ export type todoStoreTypes = {
   text: string;
 };
 export type Store = {
-  todos: todoStoreTypes[];
+  todo: todoStoreTypes[];
   addTodo: (text: string) => void;
   removeTodo: (id: string) => void;
   updateTodo: (id: string, text: string) => void;
-  loadTodos: () => void;
-  saveTodos: () => void;
+  loadTodo: () => void;
+  saveTodo: () => void;
 };
 export interface TodoItemProps {
   id: string;
