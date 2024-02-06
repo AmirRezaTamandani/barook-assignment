@@ -13,37 +13,50 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text }) => {
   const updateTodo = useTodoStore((state) => state.updateTodo);
   const removeTodo = useTodoStore((state) => state.removeTodo);
 
-  const handleUpdate = () => {
+  const updateHandler = () => {
     updateTodo(id, newText);
     setEditMode(false);
   };
 
-  const handleRemove = () => {
+  const removeHandler = () => {
     removeTodo(id);
   };
 
   return (
-    <Box sx={{ display: "flex", alignItems: "center", marginTop: 2 }}>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        marginTop: 2,
+        flexDirection: "row",
+      }}
+    >
       {editMode ? (
         <>
           <TextField
             value={newText}
             onChange={(e) => setNewText(e.target.value)}
             autoFocus
+            multiline
+            maxRows={4}
+            autoComplete="off"
           />
-          <IconButton onClick={handleUpdate}>
+          <IconButton onClick={updateHandler}>
             <DoneIcon />
           </IconButton>
         </>
       ) : (
         <>
           <Typography>{text}</Typography>
-          <IconButton onClick={() => setEditMode(true)}>
-            <EditIcon />
-          </IconButton>
-          <IconButton onClick={handleRemove}>
-            <DeleteIcon />
-          </IconButton>
+          <div>
+            <IconButton onClick={() => setEditMode(true)}>
+              <EditIcon />
+            </IconButton>
+            <IconButton onClick={removeHandler}>
+              <DeleteIcon />
+            </IconButton>
+          </div>
         </>
       )}
     </Box>

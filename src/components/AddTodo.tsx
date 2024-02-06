@@ -20,11 +20,14 @@ const AddTodoForm: React.FC = () => {
       <TextField
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="hire amirreza "
+        placeholder="Hire AmirReza"
         variant="outlined"
         size="small"
         fullWidth
         autoComplete="off"
+        multiline
+        maxRows={4}
+        margin="dense"
       />
       <Button
         type="submit"

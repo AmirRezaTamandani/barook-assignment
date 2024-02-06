@@ -4,7 +4,7 @@ import TodoList from "./TodoList";
 
 const TodoCard: React.FC = () => {
   return (
-    <Card elevation={3}>
+    <Card elevation={3} className="w-full md:max-w-lg max-w-screen-lg">
       <CardContent>
         <TodoList />
       </CardContent>

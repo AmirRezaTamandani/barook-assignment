@@ -1,7 +1,7 @@
 "use client";
 import { useTodoStore } from "@/store/store";
 import AddTodoForm from "./AddTodo";
-import TodoItem from "./TodoItems";
+import TodoItem from "./TodoItem";
 import { useEffect } from "react";
 
 const TodoList = () => {

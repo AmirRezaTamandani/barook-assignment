@@ -6,7 +6,7 @@ import theme from "@/theme";
 import { ThemeProvider } from "@mui/material/styles";
 
 export const metadata: Metadata = {
-  title: "barook",
+  title: "barook Test",
   description: "barook-frontend-assignment",
 };
 
