@@ -15,11 +15,18 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: "#121121",
+      main: "#00a8ff",
     },
     secondary: {
-      main: "#003336",
+      main: "#0097e6",
     },
+    //TODO: find a way to make this work if needed
+    // custom: {
+    //   primaryBg: '#353b48',
+    //   primaryText: '#f5f6fa',
+    //   primaryBtn: '#00a8ff',
+    //   primaryAccent: '#0097e6',
+    // },
   },
 });
 
