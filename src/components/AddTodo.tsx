@@ -22,6 +22,7 @@ const AddTodoForm: React.FC = () => {
         onChange={(e) => setInputValue(e.target.value)}
         placeholder="Hire AmirReza"
         variant="outlined"
+        style={{ overflowWrap: "break-word" }}
         size="small"
         fullWidth
         autoComplete="off"

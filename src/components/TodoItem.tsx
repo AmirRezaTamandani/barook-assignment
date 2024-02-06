@@ -39,8 +39,8 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text }) => {
             onChange={(e) => setNewText(e.target.value)}
             autoFocus
             multiline
-            maxRows={4}
             autoComplete="off"
+            fullWidth
           />
           <IconButton onClick={updateHandler}>
             <DoneIcon />
@@ -48,7 +48,11 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text }) => {
         </>
       ) : (
         <>
-          <Typography>{text}</Typography>
+          <Typography
+            sx={{ overflowWrap: "break-word", wordBreak: "break-word" }}
+          >
+            {text}
+          </Typography>
           <div>
             <IconButton onClick={() => setEditMode(true)}>
               <EditIcon />
