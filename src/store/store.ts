@@ -1,13 +1,7 @@
+import { Store } from "@/types";
 import { create } from "zustand";
 
-type Store = {
-  todos: todoTypes[];
-  addTodo: (text: string) => void;
-  removeTodo: (id: string) => void;
-  updateTodo: (id: string, text: string) => void;
-};
-//TODO: expand upon the store logic if needed
-export const useStore = create<Store>((set) => ({
+export const useTodoStore = create<Store>((set, get) => ({
   todos: [],
   addTodo: (text) =>
     set((state) => ({
@@ -21,4 +15,12 @@ export const useStore = create<Store>((set) => ({
         todo.id === id ? { ...todo, text } : todo
       ),
     })),
+  loadTodos: () => {
+    const savedTodos = JSON.parse(localStorage.getItem("todos") || "[]");
+    set({ todos: savedTodos });
+  },
+  saveTodos: () => {
+    const todos = get().todos;
+    localStorage.setItem("todos", JSON.stringify(todos));
+  },
 }));

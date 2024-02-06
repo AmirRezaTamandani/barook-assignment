@@ -1,3 +1,9 @@
+import Todo from "@/components/Todo";
+
 export default function Home() {
-  return <h1>clean</h1>;
+  return (
+    <div>
+      <Todo />
+    </div>
+  );
 }

@@ -17,7 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      {/* note: I know this is the main layout and modifying it is fround upon
+      but at this example , I thing it is logical and fast! */}
+      <body
+        className="flex align-middle justify-center items-center
+      bg-primaryBg 
+      "
+      >
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </AppRouterCacheProvider>
